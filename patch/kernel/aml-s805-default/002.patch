@@ -1,0 +1,33 @@
+diff --git a/arch/arm/boot/dts/meson8b_m201_1G.dts b/arch/arm/boot/dts/meson8b_m201_1G.dts
+index 3fd3c19e5..0bb04062d 100755
+--- a/arch/arm/boot/dts/meson8b_m201_1G.dts
++++ b/arch/arm/boot/dts/meson8b_m201_1G.dts
+@@ -1288,14 +1288,18 @@
+ 		};
+ 
+ 	};
+-        ethmac: ethernet@0xc9410000{
+-                compatible = "amlogic,meson8b-rmii-dwmac", "snps,dwmac";
+-                reg = <0xc9410000 0x10000
+-                       0xc1108108 0x4>;
+-                interrupts = <0 8 1>;
+-                interrupt-names = "macirq";
+-                clocks = "clk81";
+-                clock-names = "stmmaceth";
++        meson-eth{
++	     	compatible = "amlogic,meson-eth";
++		    dev_name = "meson-eth";
++		    status = "okay";
++		    ethbaseaddr = <0xfe0c0000>;
++		    interruptnum = <40>;
++		    savepowermode = <0>;
++		    phy_interface = <0>;    // RGMII: 0 RMII :1
++		    new_maclogic= <1>;
++		    reset_pin_enable = <0>;
++		    reset_pin = "GPI0H_4";
++		    reset_delay = <100>;
+         };
+ 	meson-rng{
+ 		compatible = "amlogic,meson-rng";
+
+
