@@ -7,6 +7,7 @@ ubuntu-*-cloudimg-console.log
 
 ### compile configurations added by users
 /config-*.conf
+push.sh
 ### but not default (supplied) files
 !/config-docker.conf
 !/config-vagrant.conf
